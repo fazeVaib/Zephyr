@@ -1,0 +1,133 @@
+body {
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #000000;
+    /*background: grey;*/
+}
+
+a, a:hover, a:visited, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+ol {
+    position: fixed;
+    width: 100px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: -20px;
+}
+ol li {
+
+    width: 120px;
+    position: sticky;
+    height: 71px;
+    color: white;
+    display: block;
+    cursor: pointer;
+    transition: .5s ease;
+    transform-origin: top;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    background: #325ecf;
+
+}
+ol li:hover {
+    filter: hue-rotate(100deg);
+    z-index: 99;
+    transform: scale(1.2);
+    box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.3);
+}
+ol li:hover ol {
+    perspective: 80px;
+    transform-style: preserve-3d;
+    z-index: -1 !important;
+}
+ol li:hover ol li {
+    opacity: 1;
+    pointer-events: auto;
+    box-shadow: -8px 0px 20px -6px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 1024px) {
+    ol li:hover ol li:nth-child(1) {
+        transform: translateX(100%) translateY(30%) scale(1) rotateY(0deg);
+    }
+    ol li:hover ol li:nth-child(2) {
+        transform: translateX(100%) translateY(-70%) scale(1) rotateY(0deg);
+    }
+    ol li:hover ol li:nth-child(3) {
+        transform: translateX(100%) translateY(-150%) scale(1) rotateY(0deg);
+    }
+}
+ol li a {
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+ol li ol {
+    position: absolute;
+    z-index: -1 !important;
+}
+
+
+.clickable {
+    pointer-events: auto;
+}
+
+/*.container {*/
+    /*position: absolute;*/
+    /*top: 2500px;*/
+    /*left: 100px;*/
+    /*width: calc(100% - 100px);*/
+    /*height: 100vh;*/
+/*}*/
+/*.container .container-text {*/
+    /*position: absolute;*/
+    /*left: 50%;*/
+    /*top: 50%;*/
+    /*transform: translate(-50%, -50%);*/
+    /*color: black  !Important;*/
+
+/*}*/
+.container{
+    margin-left: 200px;
+}
+.ui {
+    /*list-style-type: none;*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+    /*overflow: hidden;*/
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #333333;
+}
+
+.lu {
+    float: left;
+}
+
+.lu a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.lu a:hover {
+    background-color: #111111;
+}
+
+
+
+
+
+
+
+
+

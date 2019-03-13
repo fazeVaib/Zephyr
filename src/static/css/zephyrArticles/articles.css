@@ -1,0 +1,27 @@
+body{
+    font-family: 'Raleway', sans-serif;
+}
+
+.article-title{
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-size: 28px;
+    color: black;
+    padding-left: 14px;
+    border-left: #ce1b28 4px solid
+}
+
+.chipClass{
+
+    display: inline-block;
+  height: 56px;
+  font-size: 18px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 40px;
+    padding: 8px 24px;
+  border-radius: 32px;
+  background-color: #e4e4e4;
+  margin-bottom: 5px;
+  margin-right: 5px;
+}

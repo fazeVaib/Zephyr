@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Zephyr </title>
+    <link rel="icon" href="{% static "img/logo.jpeg" %}">
+    <link rel="stylesheet" href='{% static "css/zephyrStats/materialize.css" %}'>
+    <link rel="stylesheet" href='{% static "css/zephyrStats/main.css" %}'>
+
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous">
+    </script>
+    <script src="https://d3js.org/d3.v5.js"></script>
+    <script src='{% static "js/zephyrStats/jquery.jInvertScroll.js" %}'></script>
+
+    <script src='{% static "js/zephyrStats/jInvertScript.js" %}'></script>
+</head>
+<body>
+<!--Navbar-->
+<nav style="z-index:50;height: 80px; line-height: 80px; font-size: 60px; position: absolute; top: 0; left: 0;"
+     class="black">
+
+    <a href="/" class="brand-logo" style="padding-left: 24px">Zephyr</a>
+    <ul id="zephyr-list" class="right hide-on-med-and-down">
+        <ul class="links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/statistics">Statistics</a></li>
+            <li><a href="/articles">Articles</a></li>
+            <li><a href="/api-daily">Zephyr Daily API</a></li>
+            <li><a href="/api-monthly">Zephyr Monthly API</a></li>
+            <li><a href="/api-yearly">Zephyr Yearly API</a></li>
+            <li><a href="/docs">API Documentation</a></li>
+        </ul>
+    </ul>
+</nav>
+
+<!---->
+<div class="main-container">
+
+    <div class="horizon scroll">
+        <img src='{% static "img/zephyrStats/horizon1.png" %}'>
+    </div>
+
+    <div class="middle scroll">
+        <img src='{% static "img/zephyrStats/middle1.png" %}'>
+    </div>
+
+
+    <div class="front scroll">
+       <!--<h1 style="position: absolute; top: -50px; left: 1220px;">HI</h1>-->
+        <div style="position: absolute;top: 0px; left: 20px" id="div3">
+            <h5 style="text-align: center; margin: 0; padding:18px;">Average SO2 Level - States</h5>
+        </div>
+        <div style="position: absolute;top: 0; left: 2600px" id="top10No2" >
+            <h5 style="text-align: center; margin: 0; padding:18px;">Maximum No2 levels - Cities</h5>
+        </div>
+        <div style="position: absolute;top: 0; left: 3600px" id="top10So2">
+            <h5 style="text-align: center; margin: 0; padding:18px;">Maximum Respirable SPM levels - Cities</h5>
+        </div>
+        <div style="position: absolute;top: 0; left: 4600px" id="fourth">
+            <h5 style="text-align: center; margin: 0; padding:18px;">Maximum SO2 levels - Cities</h5>
+        </div>
+        <div style="position: absolute;top: 0; left: 5600px" id="fifth">
+            <h5 style="text-align: center; margin: 0; padding:18px;">Maximum SPM levels - Cities</h5>
+        </div>
+        <div style="position: absolute;top: 0; left: 6600px" id="sixth">
+            <h5 style="text-align: center; margin: 0; padding:18px;">Maximum NO2 - States</h5>
+        </div>
+        <div style="position: absolute;top: 0; left: 7600px" id="seventh">
+            <h5 style="text-align: center; margin: 0; padding:18px;">Maximum Respirable SPM - States</h5>
+        </div>
+        <div style="position: absolute;top: 0; left: 8600px" id="eighth">
+            <h5 style="text-align: center; margin: 0; padding:18px;">Maximum SO2 - States</h5>
+        </div>
+        <div style="position: absolute;top: 0; left: 9700px" id="ninth">
+            <h5 style="text-align: center; margin: 0; padding:18px;">Maximum SPM - States</h5>
+        </div>
+
+        <!--<div class="description page">-->
+            <!--<h2>jInvertScroll - A lightweight jQuery horizontal Parallax Plugin</h2>-->
+            <!--<p>-->
+                <!--What is it?-->
+                <!--<br/> It's a lightweight plugin for jQuery that allows you to move in horizontal with a parallax effect while scrolling down.-->
+                <!--<br/> It's extremely easy to setup and requires nearly no configuration.-->
+                <!--<br/>-->
+            <!--<hr style="border:none; border-bottom: 1px #ddd solid;" /> Note:-->
+            <!--<br/> By using this plugin, we expect that you know the limitations of horizontal parallax scrolling, for instance if the screen height is smaller than the content, the content will be clipped, but this plugin is intended anyway for webdesigners and-->
+             <!-- -developers, so we think that you know what you're doing. ;-)-->
+            <!--</p>-->
+        <!--</div>-->
+
+        <!--<div class="documentation page">-->
+            <!--<h
+
+            >Quickstart</h2>-->
+            <!--<p>-->
+                <!--1.) Include the css file, jQuery and the Plugin-->
+                <!--<br/> 2.) Create the desired elements that you want to scroll (You can create normal divs, that contain other elements, images, videos...)-->
+                <!--<br/> 3.) Assign following attributes to the elements you just created:-->
+                <!--<br/>-->
+            <!--<pre>position: fixed;	// All scrollable elements have to be position:fixed-->
+<!--bottom: 0;	// Make it stick to the bottom (or top)-->
+<!--width: xxxxpx;	// I recommend to assign the width in px, prevents preloading issues</pre>-->
+            <!--<br/> 4.) Order the layers via z-index (Note that it is recommended that the front layers are wider than the ones in the back) 5.) In your javascript, use this code (the selectors refer to the elements that you desire to be scrolled):-->
+            <!--<pre>$.jInvertScroll(['yourselector1', 'yourselector2'...]);</pre>-->
+            <!--</p>-->
+        <!--</div>-->
+
+        <!--<div class="options page">-->
+            <!--<h2>Options</h2>-->
+            <!--<p>-->
+                <!--You can tweak some options if you like:-->
+                <!--<br/>-->
+            <!--<pre>$.jInvertScroll(['.myScrollableElements'], {-->
+	<!--width: 'auto',	// Page width (auto or int value)-->
+	<!--height: 'auto',	// Page height (the shorter, the faster the scroll)-->
+	<!--onScroll: function(percent) {-->
+		<!--// Callback function that will be called each time the user-->
+		<!--// scrolls up or down, useful for animating other parts-->
+		<!--// on the page depending on how far the user has scrolled down-->
+		<!--// values go from 0.0 to 1.0 (with 4 decimals precision)-->
+	<!--}-->
+<!--});</pre>-->
+            <!--</p>-->
+        <!--</div>-->
+
+        <!--<div class="download page">-->
+            <!--<h2>Download</h2>-->
+            <!--<p>-->
+                <!--You can download the script as a zip file here:-->
+                <!--<br/>-->
+                <!--<br/>-->
+                <!--<a href="jInvertScroll.zip" class="file">-->
+                    <!--jInvertScroll.zip-->
+                <!--</a>-->
+                <!--<br/>-->
+                <!--<br/> ..or get it from our <a href="https://www.github.com/pixxelfactory/jInvertScroll">GitHub repository</a>.-->
+                <!--<br/>-->
+                <!--<br/>-->
+            <!--</p>-->
+            <!--<h3>License</h3>-->
+            <!--<p>-->
+                <!--It is published under the <a href="license.php">Mit license.</a></small>-->
+            <!--</p>-->
+            <!--<h3>Author</h3>-->
+            <!--<p>-->
+                <!--The plugin was written by Alex Franzelin and sponsored by Pixxelfactory.-->
+            <!--</p>-->
+        <!--</div>-->
+        <!--<div id="div3"></div>-->
+
+    </div>
+</div>
+
+<script src='{% static "js/zephyrStats/first.js" %}'></script>
+<script src='{% static "js/zephyrStats/second.js" %}'></script>
+<script src='{% static "js/zephyrStats/third.js" %}'></script>
+<script src='{% static "js/zephyrStats/fourth.js" %}'></script>
+<script src='{% static "js/zephyrStats/fifth.js" %}'></script>
+<script src='{% static "js/zephyrStats/sixth.js" %}'></script>
+<script src='{% static "js/zephyrStats/seventh.js" %}'></script>
+<script src='{% static "js/zephyrStats/eighth.js" %}'></script>
+<script src='{% static "js/zephyrStats/nineth.js" %}'></script>
+
+</body>
+</html>

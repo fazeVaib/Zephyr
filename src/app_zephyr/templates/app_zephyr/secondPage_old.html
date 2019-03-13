@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Zephyr </title>
+    <!--<link rel="stylesheet" href='{% static "css/materialize.css" %}'>-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href='{% static "css/main2.css" %}'>
+    <link rel="stylesheet" href='{% static "css/sidebar2.css" %}'>
+    <link rel="stylesheet" href='{% static "css/horizontalbar.css" %}'>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+    <div class="nav-wrapper">
+        <a style="padding-left: 24px" href="/" class="brand-logo">Zephyr</a>
+        <ul style="padding-right: 24px" id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/statistics">Statistics</a></li>
+            <li><a href="/articles">Articles</a></li>
+            <li><a href="/api-daily">Daily API</a></li>
+            <li><a href="/api-monthly">Monthly API</a></li>
+            <li><a href="/api-yearly">Yearly API</a></li>
+        </ul>
+    </div>
+</nav>
+
+<h1 style="color: gray;"><center><b> {{ city_name }} </b></center></h1>
+
+<div id="main-container">
+    <div id="data">
+        <div class="container-fluid">
+
+            <div data-aos="fade-up" data-aos-duration="500" class="row z-depth-6" style=" background-color: rgba(0,104,87,0.84);">
+
+                <!-- <div class="col m5" id="five" style="color: #f2f2f2">
+                    <h1>Bar graph</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur cumque doloremque hic laborum quia quis rem tempora voluptates? Aspernatur blanditiis dicta distinctio dolorem eveniet impedit, mollitia natus omnis quia sequi.</p>
+                </div>
+                <div style="background-color: rgba(22, 28, 28, 0.7);" class="col m7 z-depth-4" id="seven">
+                    <div class="z-depth-4" id="basic">
+
+                    </div>
+                </div> -->
+                <div class="graphDiv" id="yearlyPredDiv" style="height: 500px; background-color: black; "></div>
+            </div>
+
+
+            <div data-aos="fade-up" data-aos-duration="500" class="row z-depth-6" style=" background-color: rgba(0,104,87,0.84);">
+                <!-- <div class="col m5" id="five" style="color: #f2f2f2">
+                    <h1>Horizontal Graph</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur cumque doloremque hic laborum quia quis rem tempora voluptates? Aspernatur blanditiis dicta distinctio dolorem eveniet impedit, mollitia natus omnis quia sequi.</p>
+                </div>
+                <div style="background-color: rgba(22, 28, 28, 0.7);" class="col m7 z-depth-4" id="seven">
+                    <div style="background-color: white" class="z-depth-4" id="graphic">
+
+                    </div>
+                </div> -->
+                <div class="graphDiv" id="monthlyPredDiv" style="height: 500px;"></div>
+            </div>
+
+
+            <div data-aos="fade-up" data-aos-duration="500" class="row z-depth-6" style=" background-color: rgba(0,104,87,0.84);">
+                <!-- <div class="col m5" id="five" style="color: #f2f2f2">
+                    <h1>Slider</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur cumque doloremque hic laborum quia quis rem tempora voluptates? Aspernatur blanditiis dicta distinctio dolorem eveniet impedit, mollitia natus omnis quia sequi.</p>
+                </div>
+                <div style="background-color: rgba(22, 28, 28, 0.7);" class="col m7 z-depth-4" id="seven">
+                    <div class="z-depth-4" id="timeSeries">
+
+                    </div>
+                </div> -->
+                <div class="graphDiv" id="dailyPredDiv"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- sticky sidebar -->
+    <div id="sidebar">
+        <div class="z-depth-4" id="inner-sidebar">
+            <div>
+                 <div class="circle" style="width: 300px; height: 300px;margin: 0 auto; background-color: cadetblue;border: 2px solid whitesmoke; display: flex; align-items: center; justify-content: space-between">
+                    <div style="text-align: center; margin: 0 auto">
+                        <label style="color: white; font-size: 28px">AQI</label>
+                        <br>
+                        <hr>
+                        <label style="color: white; font-size: 28px">{{ data.aqi }}</label>
+                    </div>
+                 </div>
+            </div>
+            <div class="row">
+                <div class="col s3">
+                    <div class="circle" style="border: 2px solid whitesmoke; height: 80px; width: 80px;display: flex; align-items: center; justify-content: center">
+                        <div style="text-align: center; margin: 0 auto">
+                            <label style="color: white; font-size: 28px">{{ data.so2 }}</label>
+                        </div>
+                    </div>
+                    <div style="text-align: center">SO2</div>
+                </div>
+                <div class="col s3">
+                    <div class="circle" style="border: 2px solid whitesmoke; height: 80px; width: 80px;display: flex; align-items: center; justify-content: center">
+                        <div style="text-align: center; margin: 0 auto">
+                            <label style="color: white; font-size: 28px">{{ data.no2 }}</label>
+                        </div>
+                    </div>
+                    <div style="text-align: center">NO2</div>
+                </div>
+                <div class="col s3">
+                    <div class="circle" style="border: 2px solid whitesmoke; height: 80px; width: 80px;display: flex; align-items: center; justify-content: center">
+                        <div style="text-align: center; margin: 0 auto">
+                            <label style="color: white; font-size: 28px">{{ data.pm2_5 }}</label>
+                        </div>
+                    </div>
+                    <div style="text-align: center">PM2.5</div>
+                </div>
+                <div class="col s3">
+                    <div class="circle" style="border: 2px solid whitesmoke; height: 80px; width: 80px;display: flex; align-items: center; justify-content: center">
+                        <div style="text-align: center; margin: 0 auto">
+                            <label style="color: white; font-size: 28px">{{ data.pm10 }}</label>
+                        </div>
+                    </div>
+                    <div style="text-align: center">PM10</div>
+                </div>
+            </div>
+
+    
+            <!-- <div class="circle" style="background-color: blueviolet">
+                Hi there
+            </div>
+            <table>
+                <tr style="text-align: center">
+                    <td colspan="4" >
+                        <div style="height: 200px; width: 200px" class="circle" style="background-color: blue">
+                            AQI
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>NO2</td>
+                    <td>CO2</td>
+                    <td>PM2.5</td>
+                    <td>PM10</td>
+                </tr>
+            </table> -->
+
+
+        </div>
+        <div  class="row">
+           <div class="col s12"><label style="font-size: 36px; margin: 0; padding: 0; color: #0F9E5E">Tips</label></div>
+       </div>
+       <div id="precautionDiv"></div>
+    </div>
+</div>
+
+<div style="background-color: black;width: 100%;">
+    <h1 style="color: #f2f2f2; font-family: 'Montserrat', sans-serif"></h1>
+
+    <div id="disqus_thread" style="margin-right: 200px;margin-left: 10px;background-color: transparent;"></div>
+    <script>
+
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+        var disqus_config = function () {
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+
+        (function () { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://zephyr-2.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+        Disqus.</a></noscript>
+    <div style="background-color:#333333">
+        <ul class="ui" style="margin-left: 300px">
+            <li class="lu" style="float: left"><a class="active" href="/">Home</a></li>
+
+            <li class="lu" style="float: left"><a href="/api-daily">API</a></li>
+            <li class="lu"><a href="/articles">Articles</a></li>
+            <li class="lu" style="float: left"><a href="#">Contact Us</a></li>
+            <div class="wrapper">
+                <ul class="ui" style="margin-top: 10px">
+                <li class="lu" id="1"><i class="fa fa-facebook fa-2x" aria-hidden="true" style="color: white">&nbsp;&nbsp;&nbsp;</i></li>
+                <li class="lu" id="2"><i class="fa fa-twitter fa-2x" aria-hidden="true" style="color: white">&nbsp;&nbsp;&nbsp; </i></li>
+                <li class="lu"><i class="fa fa-instagram fa-2x" aria-hidden="true" style="color: white">&nbsp;&nbsp;&nbsp;</i> </li>
+                <li class="lu"><i class="fa fa-google fa-2x" aria-hidden="true" style="color: white">&nbsp;&nbsp;&nbsp; </i> </li>
+                <li class="lu"><i class="fa fa-whatsapp fa-2x" aria-hidden="true" style="color: white">&nbsp;&nbsp;&nbsp; </i></li>
+            </ul>
+            </div>
+        </ul>
+
+    </div>
+</div>
+
+
+
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({});
+</script>
+
+<script
+src = '{% static "js/materialize.js" %}'></script>
+<script src='{% static "js/precaution.js" %}'></script>
+<script src='{% static "js/script.js" %}'></script>
+<script src='{% static "js/yearlyPred.js" %}'></script>
+<script src='{% static "js/monthlyPred.js" %}'></script>
+<script src='{% static "js/dailyPred.js" %}'></script>
+
+</body>
+</html>

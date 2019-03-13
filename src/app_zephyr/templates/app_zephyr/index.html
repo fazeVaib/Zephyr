@@ -1,0 +1,528 @@
+<!DOCTYPE HTML>
+{% load staticfiles %}
+<html>
+<head>
+    <title>ZEPHYR</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <!--<link rel="stylesheet" href='{% static "css/zephyrHome/font-awesome.min.css" %}'>-->
+    <link rel="icon" href="{% static "img/logo.jpeg" %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href='{% static "css/zephyrHome/main.css" %}'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
+    <style type="text/css" rel="stylesheet">
+        <!--
+        Pulkit css-- >
+        #modalli li a:hover {
+            text-decoration: white underline;
+        !important;
+            /*background-color: #111111;*/
+
+        }
+        a:hover{
+            text-decoration: white underline;
+        }
+    </style>
+
+    <script src=""></script>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+
+</head>
+<body class="is-preload">
+
+
+<!-- Nav -->
+<nav style="z-index:50;height: 80px; line-height: 80px; font-size: 60px; position: absolute; top: 0; left: 0;"
+     class="black">
+
+    <a href="/" class="brand-logo" style="padding-left: 24px">Zephyr</a>
+    <ul id="zephyr-list" class="right hide-on-med-and-down">
+        <ul class="links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/statistics">Statistics</a></li>
+            <li><a href="/articles">Articles</a></li>
+            <li><a href="/api-daily">Zephyr Daily API</a></li>
+            <li><a href="/api-monthly">Zephyr Monthly API</a></li>
+            <li><a href="/api-yearly">Zephyr Yearly API</a></li>
+            <li><a href="/docs">API Documentation</a></li>
+        </ul>
+    </ul>
+</nav>
+
+
+<!-- Banner -->
+<section id="banner">
+
+    <video autoplay loop muted playsinline src='{% static "img/zephyrHome/banner.mp4" %}'></video>
+    <div style="z-index: 10" class="inner">
+
+        <img src='{% static "img/zephyrHome/logo2.png" %}'>
+        <!--<h1 style="border: 4px solid white; !important;padding: 48px; color: white">Zephyr</h1>-->
+        <!--<p>Breathe Clean</p>-->
+
+
+    </div>
+</section>
+
+<!-- Highlights -->
+<section class="wrapper">
+    <div class="inner">
+        <header class="special">
+            <h2>What Zephyr Does</h2>
+
+        </header>
+        <div class="highlights">
+            <section>
+                <div class="content">
+                    <header>
+                        <a href="#" class=""><span class="label"><img src='{% static "img/zephyrHome/predicts_aqi_logo.png" %}' style="height: 160px;width: 160px"></span></a>
+                        <h3> Predicts AQI </h3>
+                    </header>
+                    <p>With the help of machine learning we are able to predict the AQI with precision</p>
+                </div>
+            </section>
+            <section>
+                <div class="content">
+                    <header>
+                        <a href="/statistics" class=""><span class="label"><img src='{% static "img/zephyrHome/data_visualization_logo.png" %}' style="height: 160px;width: 160px"></span></a>
+                        <h3>Data Visualization</h3>
+                    </header>
+                    <p>Data is visualized in the form of graphs and charts for better understanding</p>
+                </div>
+            </section>
+            <section>
+                <div class="content">
+                    <header>
+                        <a href="#" class=""><span class="label"><img src='{% static "img/zephyrHome/discussion_logo.png" %}' style="height: 160px;width: 160px"></span></a>
+                        <h3>Discussion</h3>
+                    </header>
+                    <p>With the DISQUS intergated, we allow users to share their opinion and interact with others</p>
+                </div>
+            </section>
+            <section>
+                <div class="content">
+                    <header>
+                        <a href="/articles" class=""><span class="label"><img src='{% static "img/zephyrHome/articles_logo.png" %}' style="height: 160px;width: 160px"></span></a>
+                        <h3>Articles</h3>
+                    </header>
+                    <p>Articles are provided related to the environment through web scraping</p>
+                </div>
+            </section>
+            <section>
+                <div class="content">
+                    <header>
+                        <a href="#" class=""><span class="label"><img src='{% static "img/zephyrHome/live_data_logo.png" %}' style="height: 160px;width: 160px"></span></a>
+                        <h3>Live Data</h3>
+                    </header>
+                    <p>We provide live data from the different stations across the India</p>
+                </div>
+            </section>
+
+
+            <section>
+                <div class="content">
+                    <header>
+                        <a href="/api-daily" class=""><span class="label"><img src='{% static "img/zephyrHome/provides_api_logo.png" %}' style="height: 160px;width: 160px"></span></a>
+                        <h3>Provides API</h3>
+                    </header>
+                    <p>API of predicted data is provided alongwith their documentation</p>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+
+
+<section id="cta" class="wrapper" style="">
+    <div class="inner" style="">
+        <!--<p>-->
+        <!--<a style="text-decoration: none; border: 2px solid white;padding:24px 32px;"  href="#">SELECT CITY</a>-->
+        <!--</p>-->
+        <!--<div class="wrap">-->
+        <!--<div class="search">-->
+        <!--<input type="text" class="searchTerm" placeholder="Enter the name of City">-->
+        <!--<button type="submit" class="searchButton">-->
+        <!--<i class="fa fa-search"></i>-->
+        <!--</button>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<button class="modal-open" style="margin-top: -100px; margin-left: -1100px">Select Your City</button>-->
+        <!--<div class="modal-box " style="height: 100px;position: absolute; z-index: 5;">-->
+
+        <!--<div class="modal-box-content" style="height: 200px" >-->
+        <!--<ul>-->
+
+        <!--<li><a href="#">Five</a></li>-->
+        <!--<li><a href="#">Five</a></li>-->
+        <!--<li><a href="#">Five</a></li>-->
+        <!--<li><a href="#">Five</a></li>-->
+        <!--<li><a href="#">Five</a></li>-->
+        <!--<li><a href="#">Five</a></li> <li><a href="#">Five</a></li> <li><a href="#">Five</a></li>-->
+        <!--<li><a href="#">Agra</a></li>-->
+        <!--<li><a href="#">Agra</a></li>-->
+
+        <!--<li><a href="#">Alwar</a></li>-->
+        <!--<li><a href="#">Amaravati</a></li>-->
+        <!--<li><a href="#">Amritsar</a></li>-->
+        <!--<li><a href="#">Agra</a></li>-->
+        <!--<li><a href="#">Ahmedabad</a></li>-->
+        <!--<li><a href="#">Alwar</a></li>-->
+        <!--<li><a href="#">Amaravati</a></li>-->
+        <!--<li><a href="#">Amritsar</a></li>-->
+        <!--<li><a href="#">Asansol</a></li>-->
+        <!--<li><a href="#">Asansol</a></li>-->
+        <!--<li><a href="#">Aurangabad</a></li>-->
+        <!--<li><a href="#">Bathinda</a></li>-->
+        <!--<li><a href="#">Bengaluru</a></li>-->
+        <!--<li><a href="#">Chandrapur</a></li>-->
+        <!--<li><a href="#">Delhi</a></li>-->
+        <!--<li><a href="#">Agra</a></li>-->
+        <!--<li><a href="#">Ahmedabad</a></li>-->
+        <!--<li><a href="#">Alwar</a></li>-->
+        <!--<li><a href="#">Amaravati</a></li>-->
+        <!--<li><a href="#">Amritsar</a></li>-->
+        <!--<li><a href="#">Asansol</a></li>-->
+        <!--<li><a href="#">Aurangabad</a></li>-->
+        <!--<li value="Agra" onclick="postValue()"><a href="#">Agra</a></li>-->
+        <!--<li value="Ahmedabad" onclick="postValue()"><a href="#">Ahmedabad</a></li>-->
+        <!--<li value="Alwar" onclick="postValue()"><a href="#">Alwar</a></li>-->
+        <!--<li value="Amaravati" onclick="postValue()"><a href="#">Amaravati</a></li>-->
+        <!--<li value="Amritsar" onclick="postValue()"><a href="#">Amritsar</a></li>-->
+        <!--<li value="Asansol" onclick="postValue()"><a href="#">Asansol</a></li>-->
+        <!--<li value="Aurangabad" onclick="postValue()"><a href="#">Aurangabad</a></li>-->
+        <!--<li value="Bathinda" onclick="postValue()"><a href="#">Bathinda</a></li>-->
+        <!--<li value="Bengaluru" onclick="postValue()"><a href="#">Bengaluru</a></li>-->
+        <!--<li value="Chandrapur" onclick="postValue()"><a href="#">Chandrapur</a></li>-->
+        <!--<li value="Delhi" onclick="postValue()"><a href="#">Delhi</a></li>-->
+        <!--<li value="Dewas" onclick="postValue()"><a href="#">Dewas</a></li>-->
+        <!--<li value="Durgapur" onclick="postValue()"><a href="#">Durgapur</a></li>-->
+        <!--<li value="Faridabad" onclick="postValue()"><a href="#">Faridabad</a></li>-->
+        <!--<li value="Ghaziabad" onclick="postValue()"><a href="#">Ghaziabad</a></li>-->
+        <!--<li value="Haldia" onclick="postValue()"><a href="#">Haldia</a></li>-->
+        <!--<li value="Howrah" onclick="postValue()"><a href="#">Howrah</a></li>-->
+        <!--<li value="Hyderabad" onclick="postValue()"><a href="#">Hyderabad</a></li>-->
+        <!--<li value="Jaipur" onclick="postValue()"><a href="#">Jaipur</a></li>-->
+        <!--<li value="Jalandhar" onclick="postValue()"><a href="#">Jalandhar</a></li>-->
+        <!--<li value="Jodhpur" onclick="postValue()"><a href="#">Jodhpur</a></li>-->
+        <!--<li value="Kanpur" onclick="postValue()"><a href="#">'Kanpur</a></li>-->
+        <!--<li value="Khanna" onclick="postValue()"><a href="#">Khanna</a></li>-->
+        <!--<li value="Kolkata" onclick="postValue()"><a href="#">'Kolkata</a></li>-->
+        <!--<li value="Kota" onclick="postValue()"><a href="#">Kota</a></li>-->
+        <!--<li value="Lucknow" onclick="postValue()"><a href="#">Lucknow</a></li>-->
+        <!--<li value="Ludhiana" onclick="postValue()">a href="#">Ludhiana</a></li>-->
+        <!--<li value="Moradabad"><a href="#">Moradabad</a></li>-->
+        <!--<li value="Mumbai"><a href="#">Mumbai</a></li>-->
+        <!--<li value="Nagpur"><a href="#">Nagpur</a></li>-->
+        <!--<li value="Nashik"><a href="#">Nashik</a></li>-->
+        <!--<li value="Navi Mumbai"><a href="#">Navi Mumbai</a></li>-->
+        <!--<li value="Noida"><a href="#">Noida</a></li>-->
+        <!--<li value="Patiala"><a href="#">Patiala</a></li>-->
+        <!--<li value="Patna"><a href="#">Patna</a></li>-->
+        <!--<li value="Pithampur"><a href="#">Pithampur</a></li>-->
+        <!--<li value="Pune"><a href="#">Pune</a></li>-->
+        <!--<li value="Rajamahendravaram"><a href="#">Rajamahendravaram</a></li>-->
+        <!--<li value="Satna"><a href="#">Satna</a></li>-->
+        <!--<li value="Siliguri"><a href="#">Siliguri</a></li>-->
+        <!--<li value="Singrauli"><a href="#">Singrauli</a></li>-->
+        <!--<li value="Thiruvananthapuram"><a href="#">Thiruvananthapuram</a></li>-->
+        <!--<li value="Tirupat"><a href="#">Tirupati</a></li>-->
+        <!--<li value="Udaipur" onclick="postValue()"><a href="#">Udaipur</a></li>-->
+        <!--<li value="Ujjain" onclick="postValue()"> <a href="#">Ujjain</a></li>-->
+        <!--<li value="Varanasi"onclick="postValue()"><a href="#">Varanasi</a></li>-->
+        <!--<li value="Vijayawada" onclick="postValue()"><a href="#">Vijayawada</a></li>-->
+        <!--<li value="Visakhapatnam" onclick="postValue()"><a href="#">Visakhapatnam</a></li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--<button class="modal-close"><span class="visuallyhidden">Close modal box</span></button>-->
+        <!--</div>-->
+
+
+
+        <a style="border: white 2px solid; font-size: 20px; font-weight: bold; " class=" waves-effect waves-light modal-trigger transparent white-text" href="#modal1"><p style="margin-top: 30px; margin-left: 40px; margin-right: 40px">SELECT CITY</p></a>
+
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal li a">
+            <div class="modal-content" style="background-color: #111111; z-index: 5;">
+                <!--<h4 style="color:">List of Cities</h4>-->
+
+                <ul id="modalli">
+
+                    <li value="Agra" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px" class=".lists">Agra</a></li>
+                    <li value="Ahmedabad" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px" class=".lists">Ahmedabad</a></li>
+                    <li value="Alwar" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px" class=".lists">Alwar</a></li>
+                    <li value="Amaravati" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px" class=".lists">Amaravati</a></li>
+                    <li value="Amritsar" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px" class=".lists">Amritsar</a></li>
+                    <li value="Asanol" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Asanol</a></li>
+                    <!--<li value="Aurangabad" onclick="postValue(this)">{% csrf_token %}<a href="#">Aurangabad</a></li>-->
+                    <li value="Bathinda" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Bathinda</a></li>
+                    <li value="Bengaluru" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Bengaluru</a></li>
+                    <li value="Chandrapur" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Chandrapur</a></li>
+                    <li value="Delhi" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Delhi</a></li>
+                    <li value="Dewas" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Dewas</a></li>
+                    <li value="Durgapur" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Durgapur</a></li>
+                    <li value="Faridabad" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Faridabad</a></li>
+                    <li value="Ghaziabad" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Ghaziabad</a></li>
+                    <li value="Haldia" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Haldia</a></li>
+                    <li value="Howrah" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Howrah</a></li>
+                    <li value="Hyderabad" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Hyderabad</a></li>
+                    <li value="Jaipur" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Jaipur</a></li>
+                    <li value="Jalandhar" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Jalandhar</a></li>
+                    <li value="Jodhpur" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Jodhpur</a></li>
+                    <li value="Kanpur" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Kanpur</a></li>
+                    <!--<li value="Khanna" onclick="postValue(this)">{% csrf_token %}<a href="#">Khanna</a></li>-->
+                    <li value="Kolkata" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Kolkata</a></li>
+                    <li value="Kota" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Kota</a></li>
+                    <li value="Lucknow" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Lucknow</a></li>
+                    <li value="Ludhiana" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Ludhiana</a></li>
+                    <!--<li value="Moradabad" onclick="postValue(this)">{% csrf_token %}<a href="#">Moradabad</a></li>-->
+                    <li value="Mumbai" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Mumbai</a></li>
+                    <li value="Nagpur" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Nagpur</a></li>
+                    <li value="Nashik" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Nashik</a></li>
+                    <!--<li value="Navi Mumbai" onclick="postValue(this)">{% csrf_token %}<a href="#">Navi Mumbai</a></li>-->
+                    <li value="Noida" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Noida</a></li>
+                    <!--<li value="Patiala" onclick="postValue(this)">{% csrf_token %}<a href="#">Patiala</a></li>-->
+                    <li value="Patna" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Patna</a></li>
+                    <!--<li value="Pithampur" onclick="postValue(this)">{% csrf_token %}<a href="#">Pithampur</a></li>-->
+                    <li value="Pune" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Pune</a></li>
+                    <!--<li value="Rajamahendravaram" onclick="postValue(this)">{% csrf_token %}<a href="#">Rajamahendravaram</a></li>-->
+                    <li value="Satna" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Satna</a></li>
+                    <!--<li value="Siliguri" onclick="postValue(this)">{% csrf_token %}<a href="#">Siliguri</a></li>-->
+                    <li value="Singrauli" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Singrauli</a></li>
+                    <!--<li value="Thiruvananthapuram" onclick="postValue(this)">{% csrf_token %}<a href="#">Thiruvananthapuram</a></li>-->
+                    <li value="Tirupat" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Tirupati</a></li>
+                    <li value="Udaipur" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Udaipur</a></li>
+                    <li value="Ujjain" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Ujjain</a></li>
+                    <li value="Varanasi" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Varanasi</a></li>
+                    <li value="Vijayawada" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Vijayawada</a></li>
+                    <li value="Visakhapatnam" onclick="postValue(this)">{% csrf_token %}<a href="/data" style="font-size: 24px">Visakhapatnam</a></li>
+
+
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section style="height: 240px;">
+    <div style="font-size: 80px; line-height: 240px; text-align: center">MEET THE TEAM</div>
+</section>
+<div class="row valign-wrapper" style="height: 320px; background-color: white">
+    <div class="col s6 m3" >
+        <section>
+            <div class="content">
+                <blockquote>
+                    <label style="line-height: 60px; font-size: 30px; color: #3f3f3f">Machine Learning </label>
+                </blockquote>
+                <div class="author">
+                    <div class="image valign-wrapper">
+                        <div class="col">
+                            <a href="https://github.com/fazeVaib"><img style="border-radius: 50%" height="70" width="70" class="responsive-img"
+                                                                            src="https://avatars0.githubusercontent.com/u/22113295?s=400&v=4" alt=""/></a>
+                        </div>
+                        <div class="col">
+                            <a href="https://github.com/fazeVaib"><label style="line-height: 60px; font-size: 25px;">Vaibhav Vats</label></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="col s6 m3">
+        <section>
+            <div class="content">
+                <blockquote>
+                    <label style="line-height: 60px; font-size: 30px; color: #3f3f3f"> Backend (Django) </label>
+                </blockquote>
+                <div class="author">
+                    <div class="image valign-wrapper">
+                        <div class="col">
+                            <a href="https://github.com/altruistcoder"><img style="border-radius: 50%" height="70" width="70" class="responsive-img"
+                                                                            src="https://avatars1.githubusercontent.com/u/31319270?s=400&v=4" alt=""/></a>
+                        </div>
+                        <div class="col">
+                            <a href="https://github.com/altruistcoder"><label style="line-height: 60px; font-size: 25px;">Rishabh Aggarwal</label></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="col s6 m3">
+        <section>
+            <div class="content">
+                <blockquote>
+                    <label style="line-height: 60px; font-size: 30px; color: #3f3f3f"> Frontend </label>
+                </blockquote>
+                <div class="author">
+                    <div class="image valign-wrapper">
+                        <div class="col">
+                            <a href="https://github.com/satanpr"><img style="border-radius: 50%" height="70" width="70" class="responsive-img"
+                                                                       src="https://avatars0.githubusercontent.com/u/29947307?s=400&v=4" alt=""/></a>
+                        </div>
+                        <div class="col">
+                            <a href="https://github.com/satanpr"><label style="line-height: 60px; font-size: 25px;"> Rahul Prasad </label></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="col s6 m3">
+        <section>
+            <div class="content">
+                <blockquote>
+                    <label style="line-height: 60px; font-size: 30px; color: #3f3f3f"> Frontend </label>
+                </blockquote>
+                <div class="author">
+                    <div class="image valign-wrapper">
+                        <div class="col">
+                              <a href="https://github.com/phantombeast"><img style="border-radius: 50%" height="70" width="70" class="responsive-img"
+                                                                        src="https://avatars0.githubusercontent.com/u/32719818?s=460&v=4" alt=""/></a>
+                        </div>
+                        <div class="col">
+                            <a href="https://github.com/phantombeast"><label style="line-height: 60px; font-size: 25px;"> Pulkit Rajpal </label></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <!--Bjbaksjbk-->
+</div>
+<!--<section class="wrapper">-->
+    <!--<div class="inner">-->
+        <!--<header class="special">-->
+            <!--<h2>MEET THE TEAM</h2>-->
+        <!--</header>-->
+        <!--<div class="testimonials">-->
+            <!--<section>-->
+                <!--<div class="content">-->
+                    <!--<blockquote>-->
+                        <!--<p>Machine Learning</p>-->
+                    <!--</blockquote>-->
+                    <!--<div class="author">-->
+                        <!--<div class="image">-->
+                            <!--<img src="https://avatars0.githubusercontent.com/u/22113295?s=400&v=4" alt=""/>-->
+                        <!--</div>-->
+                        <!--<p class="credit">- <strong>Vaibhav Vats</strong> <span></span></p>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</section>-->
+            <!--<section>-->
+                <!--<div class="content">-->
+                    <!--<blockquote>-->
+                        <!--<p>Backend (DJANGO)</p>-->
+                    <!--</blockquote>-->
+                    <!--<div class="author">-->
+                        <!--<div class="image">-->
+                            <!--<img src="https://avatars1.githubusercontent.com/u/31319270?s=400&v=4" alt=""/>-->
+                        <!--</div>-->
+                        <!--<p class="credit">- <strong>Rishabh Aggarwal</strong> <span></span></p>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</section>-->
+            <!--<section>-->
+                <!--<div class="content">-->
+                    <!--<blockquote>-->
+                        <!--<p>Frontend</p>-->
+                    <!--</blockquote>-->
+                    <!--<div class="author">-->
+                        <!--<div class="image">-->
+                            <!--<img src="https://avatars0.githubusercontent.com/u/32719818?s=460&v=4" alt=""/>-->
+                        <!--</div>-->
+                        <!--<p class="credit">- <strong>Rahul Prasad</strong> <span></span></p>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</section>-->
+            <!--<section>-->
+                <!--<div class="content">-->
+                    <!--<blockquote>-->
+                        <!--<p>Frontend</p>-->
+                    <!--</blockquote>-->
+                    <!--<div class="author">-->
+                        <!--<div class="image">-->
+                            <!--<img src="https://avatars1.githubusercontent.com/u/29947307?s=460&v=4" alt=""/>-->
+                        <!--</div>-->
+                        <!--<p class="credit">- <strong>Pulkit Rajpal</strong> <span></span></p>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</section>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</section>-->
+
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <div class="content">
+
+            <!--<section>-->
+            <!--&lt;!&ndash;<h4>Sem</h4>&ndash;&gt;-->
+            <!--<ul class="alt">-->
+            <!--<li><a href="#">Dolor pulvinar sed etiam.</a></li>-->
+            <!--<li><a href="#">Etiam vel lorem sed amet.</a></li>-->
+            <!--<li><a href="#">Felis enim feugiat viverra.</a></li>-->
+            <!--<li><a href="#">Dolor pulvinar magna etiam.</a></li>-->
+            <!--</ul>-->
+            <!--</section>-->
+            <section>
+                <h4> Services </h4>
+                <ul class="plain">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/statistics">Statistics</a></li>
+                    <li><a href="/articles">Articles</a></li>
+                    <li><a href="/api-daily">Zephyr Daily API</a></li>
+                    <li><a href="/api-monthly">Zephyr Monthly API</a></li>
+                    <li><a href="/api-yearly">Zephyr Yearly API</a></li>
+                    <li><a href="/docs">API Documentation</a></li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+
+
+<script src='{% static "js/zephyrHome/jquery.min.js" %}'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+<script src='{% static "js/zephyrHome/index.js" %}'></script>
+<script src='{% static "js/zephyrHome/materialize.js" %}'></script>
+<script src='{% static "js/zephyrHome/browser.min.js" %}'></script>
+<script src='{% static "js/zephyrHome/breakpoints.min.js" %}'></script>
+<script src='{% static "js/zephyrHome/util.js" %}'></script>
+<script src='{% static "js/zephyrHome/main.js" %}'></script>
+<script>
+    function postValue(parData) {
+        console.log("INDEX************************", parData);
+        let cityName = parData.getAttribute("value");
+        console.log(cityName);
+        $.post(
+            '/',
+            {
+                clickedCity: cityName
+            },
+            (data) => {
+                console.log(data)
+            })
+    }
+</script>
+
+</body>
+</html>

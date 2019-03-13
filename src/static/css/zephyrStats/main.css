@@ -1,0 +1,142 @@
+/* hide horizontal scrollbars, since we use the vertical ones to scroll to the right */
+body
+{
+    overflow-x: hidden;
+}
+
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+/**
+  * important: keep position fixed, you can however use top:0 instead of bottom:0
+  * if you want to make it stick to the top of the browser
+  */
+.scroll
+{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+html,
+body
+{
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #555;
+}
+
+
+#logo-image{
+    height: 150px;
+    width: 240px;
+
+}
+
+h1,
+h2,
+h3,
+h5
+{
+    color: #238acb;
+}
+
+h3
+{
+    margin: 10px 0;
+}
+
+a
+{
+    color: #238acb;
+}
+
+a img
+{
+    border: none;
+}
+
+pre
+{
+    font-size: 14px;
+    color: white;
+    padding: 10px;
+    background: #646464;
+}
+
+
+.horizon
+{
+    line-height: 0;
+    z-index: 100;
+    width: 6000px;
+}
+
+.middle
+{
+    z-index: 250;
+    line-height: 0;
+    width: 8000px;
+}
+
+.front
+{
+    z-index: 500;
+    top: 150px;
+    width: 10800px;
+}
+
+.intro
+{
+    position: absolute;
+    left: 500px;
+    top: 0px;
+    padding-right: 50px;
+}
+
+.page
+{
+    top: 0px;
+    width: 500px;
+    background: white;
+    padding: 10px 30px;
+    border: 1px #eee solid;
+    position: absolute;
+}
+
+.description
+{
+    left: 1500px;
+}
+
+.documentation
+{
+    left: 2450px;
+    width: 700px;
+}
+
+.options
+{
+    width: 700px;
+    left: 3800px;
+}
+
+.download
+{
+    width: 500px;
+    left: 5100px;
+}
+
+.license
+{
+    padding: 100px 30px 30px 30px;
+}

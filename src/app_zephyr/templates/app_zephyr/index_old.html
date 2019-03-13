@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Zephyr </title>
+    <script src='{% static "js/jquerry.js" %}'></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+    <link rel="stylesheet" href='{% static "css/style.css" %}'>
+    <link rel="stylesheet" href='{% static "css/style1.css" %}'>
+    <link rel="stylesheet" href='{% static "css/style2.css" %}'>
+    <link rel="stylesheet" href='{% static "css/style3.css" %}'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900'>
+
+    <link rel="stylesheet" href='{% static "css/style.css" %}'>
+
+
+      <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src='{% static "js/script.js" %}' type="text/javascript" ></script>
+
+</head>
+<body style="background:url("bkg1.jpg");">
+
+<div class="header">
+
+    <div id="wrapper">
+        <div class="overlay"></div>
+
+        <!-- Sidebar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                  Zephyr
+                    </a>
+                </li>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/statistics">Statistics</a>
+                </li>
+                <li>
+                    <a href="/articles">Articles</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Zephyr APIs <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="dropdown-header">Zephyr APIs</li>
+                        <li><a href="/api-daily">Data API by Daily Trends</a></li>
+                        <li><a href="/api-monthly">Data API by Monthly Trends</a></li>
+                        <li><a href="/api-yearly">Data API by Yearly Trends</a></li>
+                        <!--<li><a href="#">One more separated link</a></li>-->
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="/docs/">API Docs</a>
+                </li>
+                <li>
+                    <a href="#">About Us</a>
+                </li>
+                <li>
+                    <a href="#">Contact Us</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Team <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="dropdown-header">Meet the Developers</li>
+                        <li><a href="#">Rishabh Aggarwal</a></li>
+                        <li><a href="#">Vaibhav Vats</a></li>
+                        <li><a href="#">Pulit Rajpal</a></li>
+                        <li><a href="#">Rahul Prasad</a></li>
+                        <!--<li><a href="#">One more separated link</a></li>-->
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+                <span class="hamb-middle"></span>
+                <span class="hamb-bottom"></span>
+            </button>
+
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!--<div class="sides">-->
+        <!--<a href="#" class="logo">BLOG</a>-->
+    <!--</div>-->
+    <!--<div class="sides"> <a href="#" class="menu">-</a></div>-->
+    <div class="info">
+
+        <h1 style="font-size: 60px">Zephyr</h1>
+        <h2><p href="#category"></p></h2>
+        <h3></h3>
+
+        <button class="modal-open" style="margin-top: -100px; margin-left: -1500px">Select Your City</button>
+        <div class="modal-box">
+            <div class="modal-box-content" >
+                <ul>
+
+                    <li><a href="#">Five</a></li>
+                    <li><a href="#">Five</a></li>
+                    <li><a href="#">Five</a></li>
+                    <li><a href="#">Five</a></li>
+                    <li><a href="#">Five</a></li>
+                    <li><a href="#">Five</a></li> <li><a href="#">Five</a></li> <li><a href="#">Five</a></li>
+                    <li><a href="#">Agra</a></li>
+                    <li><a href="#">Agra</a></li>
+
+                    <!--<li><a href="#">Alwar</a></li>-->
+                    <!--<li><a href="#">Amaravati</a></li>-->
+                    <!--<li><a href="#">Amritsar</a></li>-->
+                    <!--<li><a href="#">Agra</a></li>-->
+                    <!--<li><a href="#">Ahmedabad</a></li>-->
+                    <!--<li><a href="#">Alwar</a></li>-->
+                    <!--<li><a href="#">Amaravati</a></li>-->
+                    <li><a href="#">Amritsar</a></li>
+                    <li><a href="#">Asansol</a></li>
+                    <li><a href="#">Asansol</a></li>
+                    <li><a href="#">Aurangabad</a></li>
+                    <li><a href="#">Bathinda</a></li>
+                    <li><a href="#">Bengaluru</a></li>
+                    <li><a href="#">Chandrapur</a></li>
+                    <li><a href="#">Delhi</a></li>
+                    <li><a href="#">Agra</a></li>
+                    <li><a href="#">Ahmedabad</a></li>
+                    <li><a href="#">Alwar</a></li>
+                    <li><a href="#">Amaravati</a></li>
+                    <li><a href="#">Amritsar</a></li>
+                    <li><a href="#">Asanol</a></li>
+                    <!--<li><a href="#">Aurangabad</a></li>-->
+                    <li value="Agra" onclick="postValue(this)">{% csrf_token %}<a href="/data">Agra</a></li>
+                    <li value="Ahmedabad" onclick="postValue(this)">{% csrf_token %}<a href="/data">Ahmedabad</a></li>
+                    <li value="Alwar" onclick="postValue(this)">{% csrf_token %}<a href="/data">Alwar</a></li>
+                    <li value="Amaravati" onclick="postValue(this)">{% csrf_token %}<a href="/data">Amaravati</a></li>
+                    <li value="Amritsar" onclick="postValue(this)">{% csrf_token %}<a href="/data">Amritsar</a></li>
+                    <li value="Asanol" onclick="postValue(this)">{% csrf_token %}<a href="/data">Asanol</a></li>
+                    <!--<li value="Aurangabad" onclick="postValue(this)">{% csrf_token %}<a href="#">Aurangabad</a></li>-->
+                    <li value="Bathinda" onclick="postValue(this)">{% csrf_token %}<a href="/data">Bathinda</a></li>
+                    <li value="Bengaluru" onclick="postValue(this)">{% csrf_token %}<a href="/data">Bengaluru</a></li>
+                    <li value="Chandrapur" onclick="postValue(this)">{% csrf_token %}<a href="/data">Chandrapur</a></li>
+                    <li value="Delhi" onclick="postValue(this)">{% csrf_token %}<a href="/data">Delhi</a></li>
+                    <li value="Dewas" onclick="postValue(this)">{% csrf_token %}<a href="/data">Dewas</a></li>
+                    <li value="Durgapur" onclick="postValue(this)">{% csrf_token %}<a href="/data">Durgapur</a></li>
+                    <li value="Faridabad" onclick="postValue(this)">{% csrf_token %}<a href="/data">Faridabad</a></li>
+                    <li value="Ghaziabad" onclick="postValue(this)">{% csrf_token %}<a href="/data">Ghaziabad</a></li>
+                    <li value="Haldia" onclick="postValue(this)">{% csrf_token %}<a href="/data">Haldia</a></li>
+                    <li value="Howrah" onclick="postValue(this)">{% csrf_token %}<a href="/data">Howrah</a></li>
+                    <li value="Hyderabad" onclick="postValue(this)">{% csrf_token %}<a href="/data">Hyderabad</a></li>
+                    <li value="Jaipur" onclick="postValue(this)">{% csrf_token %}<a href="/data">Jaipur</a></li>
+                    <li value="Jalandhar" onclick="postValue(this)">{% csrf_token %}<a href="/data">Jalandhar</a></li>
+                    <li value="Jodhpur" onclick="postValue(this)">{% csrf_token %}<a href="/data">Jodhpur</a></li>
+                    <li value="Kanpur" onclick="postValue(this)">{% csrf_token %}<a href="/data">Kanpur</a></li>
+                    <!--<li value="Khanna" onclick="postValue(this)">{% csrf_token %}<a href="#">Khanna</a></li>-->
+                    <li value="Kolkata" onclick="postValue(this)">{% csrf_token %}<a href="/data">Kolkata</a></li>
+                    <li value="Kota" onclick="postValue(this)">{% csrf_token %}<a href="/data">Kota</a></li>
+                    <li value="Lucknow" onclick="postValue(this)">{% csrf_token %}<a href="/data">Lucknow</a></li>
+                    <li value="Ludhiana" onclick="postValue(this)">{% csrf_token %}<a href="/data">Ludhiana</a></li>
+                    <!--<li value="Moradabad" onclick="postValue(this)">{% csrf_token %}<a href="#">Moradabad</a></li>-->
+                    <li value="Mumbai" onclick="postValue(this)">{% csrf_token %}<a href="/data">Mumbai</a></li>
+                    <li value="Nagpur" onclick="postValue(this)">{% csrf_token %}<a href="/data">Nagpur</a></li>
+                    <li value="Nashik" onclick="postValue(this)">{% csrf_token %}<a href="/data">Nashik</a></li>
+                    <!--<li value="Navi Mumbai" onclick="postValue(this)">{% csrf_token %}<a href="#">Navi Mumbai</a></li>-->
+                    <li value="Noida" onclick="postValue(this)">{% csrf_token %}<a href="/data">Noida</a></li>
+                    <!--<li value="Patiala" onclick="postValue(this)">{% csrf_token %}<a href="#">Patiala</a></li>-->
+                    <li value="Patna" onclick="postValue(this)">{% csrf_token %}<a href="/data">Patna</a></li>
+                    <!--<li value="Pithampur" onclick="postValue(this)">{% csrf_token %}<a href="#">Pithampur</a></li>-->
+                    <li value="Pune" onclick="postValue(this)">{% csrf_token %}<a href="/data">Pune</a></li>
+                    <!--<li value="Rajamahendravaram" onclick="postValue(this)">{% csrf_token %}<a href="#">Rajamahendravaram</a></li>-->
+                    <li value="Satna" onclick="postValue(this)">{% csrf_token %}<a href="/data">Satna</a></li>
+                    <!--<li value="Siliguri" onclick="postValue(this)">{% csrf_token %}<a href="#">Siliguri</a></li>-->
+                    <li value="Singrauli" onclick="postValue(this)">{% csrf_token %}<a href="/data">Singrauli</a></li>
+                    <!--<li value="Thiruvananthapuram" onclick="postValue(this)">{% csrf_token %}<a href="#">Thiruvananthapuram</a></li>-->
+                    <li value="Tirupat" onclick="postValue(this)">{% csrf_token %}<a href="/data">Tirupati</a></li>
+                    <li value="Udaipur" onclick="postValue(this)">{% csrf_token %}<a href="/data">Udaipur</a></li>
+                    <li value="Ujjain" onclick="postValue(this)">{% csrf_token %}<a href="/data">Ujjain</a></li>
+                    <li value="Varanasi"onclick="postValue(this)">{% csrf_token %}<a href="/data">Varanasi</a></li>
+                    <li value="Vijayawada" onclick="postValue(this)">{% csrf_token %}<a href="/data">Vijayawada</a></li>
+                    <li value="Visakhapatnam" onclick="postValue(this)">{% csrf_token %}<a href="/data">Visakhapatnam</a></li>
+                </ul>
+            </div>
+            <button class="modal-close"><span class="visuallyhidden">Close modal box</span></button>
+        </div>
+
+        <!--<div class="w3-container">-->
+
+            <!--<button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button>-->
+
+            <!--<div id="id01" class="w3-modal">-->
+                <!--<div class="w3-modal-content">-->
+                    <!--<div class="w3-container">-->
+                        <!--<span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>-->
+                        <!--<h3>Select your City</h3>-->
+                        <!--<p>Some text. Some text. Some text.</p>-->
+                        <!--<p>Some text. Some text. Some text.</p>-->
+                        <!--<p>Some text. Some text. Some text.</p>-->
+
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+
+
+
+
+
+
+        <!--<div class="meta">-->
+            <!--<a  href="https://github.com/phantombeast" target="_b" class="author"></a><br>-->
+            <!--By <a href="https://github.com/phantombeast" target="_b">Pulkit Rajpal</a> The God-->
+        <!--</div>-->
+    </div>
+
+
+
+</div>
+
+
+
+<script src='{% static "js/index.js" %}'></script>
+
+<script>
+
+
+
+    function postValue(parData) {
+        console.log(parData);
+        let cityName = parData.getAttribute("value");
+        console.log(cityName);
+        $.post(
+            '/',
+            {
+                clickedCity: cityName
+            },
+            (data)=>{
+                console.log(data)
+        })
+    }
+
+</script>
+
+</body>
+</html>

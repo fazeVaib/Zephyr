@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Statistics</title>
+    <link rel="stylesheet" href='{% static "./css/materialize.css" %}'>
+    <link rel="stylesheet" href='{% static "./css/statsidebar.css" %}'>
+    <script src="https://d3js.org/d3.v5.js"></script>
+</head>
+<body>
+<!--Nav-->
+<!--SomethingElse-->
+<h1><center> Statistics </center></h1>
+    <p>
+        <!--{{ state_high_spm }}-->
+        <!--{% for i in state_high_spm %}-->
+            <!--{{ i }}-->
+            <!--<br><br>-->
+        <!--{% endfor %}-->
+        <!--<br><br>-->
+        <!--{{ state_high_no2 }}-->
+        <!--<br><br>-->
+        <!--{{ allstate_so2_no2_rspm_spm }}-->
+        <!--<br><br>-->
+        <!--{{ state_high_so2 }}-->
+        <!--<br><br>-->
+        <!--{{ loc_high_no2 }}-->
+        <!--<br><br>-->
+        <!--{{ loc_high_rspm }}-->
+        <!--<br><br>-->
+        <!--{{ loc_high_spm }}-->
+        <!--<br><br>-->
+        <!--{{ loc_high_so2 }}-->
+        <!--<br><br>-->
+        <!--{{ state_high_rspm }}-->
+    </p>
+
+<div class="container">
+    <div class="row">
+        <div class="col m2">
+            <div class="sidebar">
+                <ul id="sidebar-list">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col m10">
+                1
+            <div id="div3"></div>
+                2
+            <div id="second"></div>
+                3
+            <div id="third"></div>
+                4
+            <div id="fourth"></div>
+                5
+            <div id="fifth"></div>
+                6
+            <div id="sixth"></div>
+                7
+            <div id="seventh"></div>
+                8
+            <div id="eighth"></div>
+                9
+            <div id="ninth"></div>
+
+        </div>
+    </div>
+</div>
+<div id="data-div" data-parent="{{ state_high_spm }}"></div>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+<script>
+    // let  topNo2;
+    // $.get('./statistics-data',(data)=>{
+    //     console.log(data);
+    //     console.log(data.loc_high_no2)
+    //     //let stateshb = ;
+    //     topNo2 =  data.state_high_no2;
+    //     let topSo2 = data.state_high_so2;
+    //     let fourth = data.loc_high_no2;
+    //     let fifth = data.loc_high_rspm;
+    //     let sixth= data.loc_high_spm ;
+    //     let seventh = data.loc_high_so2;
+    //     let eighth = data.loc_high_so2;
+    //     let ninth = data.state_high_rspm;
+    //
+    //     console.log(topNo2);
+    //     console.log(topSo2);
+    //     console.log(fourth);
+
+        <!--{{ state_high_so2 }}-->
+        <!--<br><br>-->
+        <!--{{ loc_high_no2 }}-->
+        <!--<br><br>-->
+        <!--{{ loc_high_rspm }}-->
+        <!--<br><br>-->
+        <!--{{ loc_high_spm }}-->
+        <!--<br><br>-->
+        <!--{{ loc_high_so2 }}-->
+        <!--<br><br>-->
+        <!--{{ state_high_rspm }}-->
+    // })
+</script>
+<script src='{% static "js/stateshb.js" %}'></script>
+<script src='{% static "js/second.js" %}'></script>
+<script src='{% static "js/third.js" %}'></script>
+<script src='{% static "js/four.js" %}'></script>
+<script src='{% static "js/five.js" %}'></script>
+<script src='{% static "js/six.js" %}'></script>
+<script src='{% static "js/seven.js" %}'></script>
+<script src='{% static "js/eight.js" %}'></script>
+<script src='{% static "js/nine.js" %}'></script>
+</body>
+</html>

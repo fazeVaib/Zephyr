@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Zephyr </title>
+    <link rel="icon" href='{% static "img/logo.jpeg" %}'>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href='{% static "css/zephyrArticles/materialize.css" %}'>
+    <link rel="stylesheet" href='{% static "css/zephyrArticles/articles.css" %}'>
+
+</head>
+<body>
+<nav class="black fixed">
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo" style="padding-left: 24px">Zephyr</a>
+        <ul id="zephyr-list" class="right hide-on-med-and-down">
+            <li><a href="/">Home</a></li>
+            <li><a href="/statistics">Statistics</a></li>
+            <li><a href="/articles">Articles</a></li>
+            <li><a href="/api-daily">Zephyr Daily API</a></li>
+            <li><a href="/api-monthly">Zephyr Monthly API</a></li>
+            <li><a href="/api-yearly">Zephyr Yearly API</a></li>
+            <li><a href="/docs">API Documentation</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div style="margin-top: 80px" class="container">
+    <div class="row">
+        <div class="col l8 m12 s12">
+            {% for obj in object_list %}
+            <div class="row" style="margin-top: 20px">
+                <div class="col s12">
+                    <div style="box-shadow: 0 0 0 0" class="card horizontal">
+                        <div class="card-image">
+                            {% if obj.image %}
+                            <a href='{{ obj.link }}'><img src="{{ obj.image }}"></a>
+                            {% else %}
+                                <img class="responsive-img" src='{% static "img/zephyrArticles/beach.jpg" %}'
+                                     alt="Image not available">
+                            {% endif %}
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                            {% if obj.title %}
+                            <a style="text-decoration: none" href='{{ obj.link }}'><h3 class="article-title"> {{ obj.title }} </h3></a>
+                            {% else %}
+                            <a style="text-decoration: none" href='{{ obj.link }}'><h3 class="article-title"> Effects of Air Pollution </h3></a>
+                            {% endif %}
+                        </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="divider"></div>
+            {% endfor %}
+
+        </div>
+        <div style="padding: 0 48px; position: sticky; top: 80px;" class="col l4 hide-on-med-and-down">
+            <div style="background-color: black">
+                <img class="responsive-img" style="width: 320px" src='{% static "img/zephyrHome/logo2.png" %}'>
+            </div>
+            <br>
+            <div>
+                <h4 style="padding-left: 20px; border-left: 4px solid  #ce1b28;"><b> Keywords </b></h4>
+            </div>
+            <div class="divider"></div>
+            <div style="margin-top: 20px;">
+
+                <div class="chipClass">
+                    Air Pollution
+                </div>
+                <div class="chipClass">
+                    Clean Air
+                </div>
+                <div class="chipClass">
+                    Environment
+                </div>
+                <div class="chipClass">
+                    Air Quality
+                </div>
+                <div class="chipClass">
+                    Climate
+                </div>
+                <div class="chipClass">
+                    Pollution Control
+                </div>
+                <div class="chipClass">
+                    Pollution
+                </div>
+                <div class="chipClass">
+                    AQI
+                </div>
+                <div class="chipClass">
+                    India
+                </div>
+                <div class="chipClass">
+                    Fresh Air
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

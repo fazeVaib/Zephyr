@@ -1,0 +1,50 @@
+{% extends "articles/base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+    <!-- Nav -->
+    <!--<nav style="z-index:50;height: 80px; line-height: 80px; font-size: 60px; position: absolute; top: 0; left: 0;"-->
+         <!--class="black">-->
+
+        <!--<a href="/" class="brand-logo" style="padding-left: 24px">Zephyr</a>-->
+        <!--<ul id="zephyr-list" class="right hide-on-med-and-down">-->
+            <!--<ul class="links">-->
+                <!--<li><a href="/">Home</a></li>-->
+                <!--<li><a href="/statistics">Statistics</a></li>-->
+                <!--<li><a href="/articles">Articles</a></li>-->
+                <!--<li><a href="/api-daily">Zephyr Daily API</a></li>-->
+                <!--<li><a href="/api-monthly">Zephyr Monthly API</a></li>-->
+                <!--<li><a href="/api-yearly">Zephyr Yearly API</a></li>-->
+                <!--<li><a href="/docs">API Documentation</a></li>-->
+            <!--</ul>-->
+        <!--</ul>-->
+    <!--</nav>-->
+
+    <h1 style="font-size: 56px; color:gray"><center><b> {{ title }} </b></center></h1>
+
+     <div class="row">
+        {% for obj in object_list %}
+
+                <div class="col col-sm12 col-md-6 col-lg-6  ">
+                    <div class="thumbnail">
+                        {% if obj.title %}
+                        <h3> <a href='{{ obj.link }}'> {{ obj.title }} </a></h3>
+                        {% else %}
+                        <h3><a href='{{ obj.link }}'> Effects of Air Pollution </a></h3>
+                        {% endif %}
+                        {% if obj.image %}
+                        <a href='{{ obj.link }}'> <img src="{{ obj.image }}" class="img-responsive"/></a>
+                        {% else %}
+                         <p>
+                        <object data='{% static "img/background.jpg" %}' type="image/png"  class="img-responsive">
+                          <img src="{{ obj.image }}" alt="Image not available" class="img-responsive"/>
+                        </object>
+                      </p>
+                        {% endif %}
+                    </div>
+                </div>
+                <hr/>
+        {% endfor %}
+     </div>
+
+{% endblock content %}

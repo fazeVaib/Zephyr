@@ -1,0 +1,71 @@
+{% load staticfiles %}
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Montserrat', sans-serif
+}
+
+#main-container{
+    display: flex;
+}
+
+#data{
+    flex: 3;
+}
+
+.container-fluid{
+    margin: 24px auto;
+    width: 85%;
+}
+
+.row{
+    padding: 24px;
+    border-radius: 18px;
+}
+
+.nav-wrapper{
+    background-color: rgba(22, 28, 28, 0.9);
+}
+
+.modebar{
+    display: none;
+}
+
+.graphDiv{
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+#searchbar{
+    width: 90%;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border: 2px solid black;
+    border-radius: 24px;
+    background-color: rgba(0, 104, 87, 0.45);
+}
+
+#city-input{
+    width: 70%;
+    padding: 12px;
+    font-size: 36px;
+    font-weight: 800;
+    border-bottom: 8px solid rgb(0,104,87);
+    color: whitesmoke;
+}
+
+#submit-btn{
+    display: none;
+}
+
+#city-input:focus ~#submit-btn{
+    display: inline-block;
+}
+
+

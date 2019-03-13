@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zephyr</title>
+    <link rel="icon" href="{% static "img/logo.jpeg" %}">
+    <link rel="stylesheet" href='{% static "css/zephyrSecond/materialize.css" %}'>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href='{% static "css/zephyrSecond/tabs.css" %}'>
+    <link rel="stylesheet" href='{% static "css/zephyrSecond/second.css" %}'>
+    <link rel="stylesheet" href='{% static "css/zephyrSecond/footer.css" %}'>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        .cta{
+            background-image: url('{% static "img/zephyrSecond/cta01.jpg" %}');
+        }
+    </style>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
+<body>
+
+
+<!--Navbar-->
+<nav>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo" style="padding-left: 24px">Zephyr</a>
+        <ul id="zephyr-list" class="right hide-on-med-and-down">
+            <ul class="links">
+					<li><a href="/">Home</a></li>
+					<li><a href="/statistics">Statistics</a></li>
+					<li><a href="/articles">Articles</a></li>
+					<li><a href="/api-daily">Zephyr Daily API</a></li>
+					<li><a href="/api-monthly">Zephyr Monthly API</a></li>
+					<li><a href="/api-yearly">Zephyr Yearly API</a></li>
+					<li><a href="/docs">API Documentation</a></li>
+				</ul>
+        </ul>
+    </div>
+</nav>
+
+<!--Searched city label-->
+<section class="cta" >
+    <div style="padding: 56px 0;">
+        <h1 style="border: 2px solid white; display: inline; padding: 24px 32px; ">{{ city_name }}</h1>
+    </div>
+</section>
+
+<!--<div class="nav-wrapper">-->
+<!--<a href="#" class="brand-logo">Logo</a>-->
+<!--</div>-->
+<!--</nav>-->
+
+<!--Tabs-->
+<div class="row">
+    <div class="col m8 s12">
+        <div style="margin: 16px" class="row z-depth-3 tabs-row">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s3"><a class="active" href="#test1">CURRENT</a></li>
+                    <li style="margin: 0; padding: 0;overflow: hidden" class="tab col s3"><a href="#year">YEARLY</a></li>
+                    <li style="margin: 0; padding: 0;overflow: hidden" class="tab col s3"><a href="#monthlyPredDiv">MONTHLY</a></li>
+                    <li style="margin: 0; padding: 0;overflow: hidden" class="tab col s3"><a href="#dailyPredDiv">DAILY</a></li>
+                </ul>
+            </div>
+
+            <div id="test1" class="col s12 tab1 valign-wrapper">
+
+                <div class="center-align" style="width: 100%">
+                    <!--AQI DIV-->
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="circle z-depth-3"
+                                 style="width: 280px; height: 280px; border:10px #D8001F solid;margin: 0 auto; background-color: #3f3f3f; display: flex; align-items: center; justify-content: space-between">
+                                <div style="text-align: center; margin: 0 auto">
+                                    <label style="color: white; font-size: 28px">AQI</label>
+                                    <br>
+                                    <hr>
+                                    <label style="color: white; font-size: 28px">{{ data.aqi }}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Rest 4 divs-->
+                    <div class="container" style="padding-top: 24px">
+                        <div class="container">
+                            <div class="row">
+                                <!--CO2-->
+                                <div class="col s3">
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <div class="circle valign-wrapper z-depth-2"
+                                                 style="background-color:#E8E8E8; height: 80px; width: 80px; margin: 0 auto; border: 5px #D8001F solid">
+                                                <label style="color: black; font-size: 28px; margin: 0 auto;">{{ data.so2 }}</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col s12">
+                                            SO2
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--NO2-->
+                                <div class="col s3">
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <div class="circle valign-wrapper z-depth-2"
+                                                 style="background-color:#E8E8E8; height: 80px; width: 80px; margin: 0 auto; border: 5px #D8001F solid">
+                                                <label style="color: black; font-size: 28px; margin: 0 auto;">{{ data.no2 }}</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col s12">
+                                            NO2
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--PM2.5-->
+                                <div class="col s3">
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <div class="circle valign-wrapper z-depth-2"
+                                                 style="background-color:#E8E8E8; height: 80px; width: 80px; margin: 0 auto; border: 5px #D8001F solid">
+                                                <label style="color: black; font-size: 28px; margin: 0 auto;">{{ data.pm2_5 }}</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col s12">
+                                            PM2.5
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--PM10-->
+                                <div class="col s3">
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <div class="circle valign-wrapper z-depth-2"
+                                                 style="background-color:#E8E8E8; height: 80px; width: 80px; margin: 0 auto; border: 5px #D8001F solid">
+                                                <label style="color: black; font-size: 28px; margin: 0 auto;">{{ data.pm10 }}</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col s12">
+                                            PM10
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--4-->
+                    <!-- Precautions -->
+                    <!--<div class="container">-->
+                    <!--<div class="row">-->
+                    <!--<div class="col s12">-->
+                    <!--<h3 style="margin: 0">Precautions</h3>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="row">-->
+                    <!--<div class="col s6 left-align">-->
+                    <!--1-->
+                    <!--</div>-->
+                    <!--<div class="col s6 left-align">-->
+                    <!--1-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="row">-->
+                    <!--<div class="col s6 left-align">-->
+                    <!--1-->
+                    <!--</div>-->
+                    <!--<div class="col s6 left-align">-->
+                    <!--1-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!-- P End -->
+                </div>
+
+            </div>
+            <div id="year"  class="col s12 tab2">
+                <div style="width: 100%" id="yearlyPredDiv"></div>
+            </div>
+
+            <div id="monthlyPredDiv" class="col s12 tab3"></div>
+            <div id="dailyPredDiv" class="col s12 tab4"></div>
+        </div>
+    </div>
+    <div class="col m4 s12 " style="padding: 16px 16px 16px 0">
+        <div id="precautionDiv" class="z-depth-3" style="padding: 24px">
+            <div style="text-align: center">
+
+                <img id="sugImage" src="" alt="" height="150px">
+                <ul id="dont-list">
+                </ul>
+            </div>
+
+            <div class="divider"></div>
+            <h2 style="padding: 18px 0 24px 18px">
+                <img src='{% static "img/zephyrSecond/checked.png" %}' alt="">
+                Suggestions</h2>
+            <div class="divider"></div>
+            <ul id="do-list">
+            </ul>
+
+
+        </div>
+    </div>
+</div>
+<section class="cta" >
+    <div style="padding: 56px 0;">
+        <label>DETAILS</label>
+    </div>
+</section>
+<div class="row">
+
+    <div id="aqi-div" style="padding-left: 16px; padding-top: 16px; position: sticky; top: 16px;" class="col s12 m4">
+
+        <div>
+            <img class="responsive-img z-depth-3" src='{% static "img/zephyrSecond/aqi_image.png" %}' alt="">
+        </div>
+        <div style="; margin-top: 16px">
+            <img class="responsive-img z-depth-3" src='{% static "img/zephyrSecond/againffs.PNG" %}' alt="">
+        </div>
+    </div>
+    <div style="padding: 16px;" class="col s12 m8">
+        <div class="z-depth-3" style="padding: 24px">
+
+
+            <div class="ccard ">
+                <h1>AQI</h1>
+                <p>The AQI is an index for reporting daily air quality. It tells you how clean or unhealthy your air is, and what associated health effects might be a concern. The AQI focuses on health effects you may experience within a few hours or days after breathing unhealthy air.</p>
+            </div>
+            <div class="divider"></div>
+            <div class="ccard">
+                <h1>Sulphur Dioxide</h1>
+                <p>Sulfur dioxide, a colorless, reactive gas, is produced when sulfur-containing fuels such as coal and oil are burned. Generally, the highest levels of sulfur dioxide are found near large industrial complexes. Major sources include power plants, refineries, and industrial boilers.</p>
+            </div>
+            <div class="divider"></div>
+            <div class="ccard">
+                <h1>Nitrogen Dioxide</h1>
+                <p>Nitrogen dioxide is a nasty-smelling gas. Some nitrogen dioxide is formed naturally in the atmosphere by lightning and some is produced by plants, soil and water. However, only about 1% of the total amount of nitrogen dioxide found in our cities' air is formed this way.
+                    Nitrogen dioxide is an important air pollutant because it contributes to the formation of photochemical smog, which can have significant impacts on human health.</p>
+            </div>
+            <div class="divider"></div>
+            <div class="ccard">
+                <h1>Particulate Matter 2.5</h1>
+                <p>PM 2.5 is an atmospheric particulate matter of diameter of fewer than 2.5 micrometres, which is around 3 per cent the diameter of a human hair. It causes respiratory problems and reduces visibility. PM 2.5 particles can only be detected with the help of an electron microscope because they are so small. Fine particles are produced from all types of combustion, including motor vehicles, power plants, residential wood burning, forest fires, agricultural burning, and some industrial processes.</p>
+            </div>
+            <div class="divider"></div>
+            <div class="ccard">
+                <h1>Particulate Matter 10</h1>
+                <p>These are 2.5 to 10 micrometers in diameter. Sources include crushing or grinding operations and dust stirred up by vehicles on roads. These tiny particles which are about 30 times smaller than the width of a hair on your head are small enough to get inhaled past our defensive nose hairs and into our lungs.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--AQI INFO DIV-->
+
+
+
+
+
+
+<!--DISQUS-->
+<section class="cta">
+    <div style="padding: 56px 0;">
+        <label style="">DISCUSSION</label>
+    </div>
+
+</section>
+
+
+<div class="container" id="disqus_thread" style="margin: 0 auto;background-color: transparent;"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function () { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://zephyr-2.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+Disqus.</a></noscript>
+
+<footer id="footer">
+    <div class="inner">
+        <div class="content">
+
+            <!--<section>-->
+            <!--&lt;!&ndash;<h4>Sem</h4>&ndash;&gt;-->
+            <!--<ul class="alt">-->
+            <!--<li><a href="#">Dolor pulvinar sed etiam.</a></li>-->
+            <!--<li><a href="#">Etiam vel lorem sed amet.</a></li>-->
+            <!--<li><a href="#">Felis enim feugiat viverra.</a></li>-->
+            <!--<li><a href="#">Dolor pulvinar magna etiam.</a></li>-->
+            <!--</ul>-->
+            <!--</section>-->
+            <section>
+                <h4> Services </h4>
+                <ul class="plain">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/statistics">Statistics</a></li>
+                    <li><a href="/articles">Articles</a></li>
+                    <li><a href="/api-daily">Zephyr Daily API</a></li>
+                    <li><a href="/api-monthly">Zephyr Monthly API</a></li>
+                    <li><a href="/api-yearly">Zephyr Yearly API</a></li>
+                    <li><a href="/docs">API Documentation</a></li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+         // let status=['Healthy','moderate','Slightly unhealthy','Unhealthy','Very Unhealthy'];
+         // // status = JSON.parse(status);
+         // console.log("HJJHVJH");
+         // console.log(typeof(status));
+        var value={{ data.aqi }};
+        let path;
+        let imgSel =  document.getElementById("sugImage");
+        if(value==0){
+            var tips = ['Be highly active outside\n', 'Safe for Children & old people\n','Outdoor Activities\n','Get involved in prolonged and heavy exertion\n'];
+            path = '{% static "img/zephyrSecond/white.png" %}';
+            imgSel.src = path;
+        }
+        else if(value>=0 && value<=50){
+            var tips = ['Be highly active outside\n', 'Safe for Children & old people\n','Outdoor Activities\n','Get involved in prolonged and heavy exertion\n'];
+            path = '{% static "img/zephyrSecond/1.jpg" %}';
+            imgSel.src = path;
+        }
+        else if(value>50 && value<=100){
+            var tips = ['Do not get involved in prolonged outdoor activities', 'Unusually Sensitive people should avoid heavy exertion\n','Safe for Children & old people\n',
+       'Mediocre Outdoor Activities\n'];
+            path = '{% static "img/zephyrSecond/2.jpg" %}';
+            imgSel.src = path;
+        }
+        else if(value>100 && value<=150){
+            var tips = ['Active children & adults should reduce heavy exertion outdoors.\n', 'Unsafe for people with lung and heart diseases, like Asthma\n','Unsafe for old people.\n',
+       'Limited outdoor activities\n'];
+            path = '{% static "img/zephyrSecond/3.jpg" %}';
+            imgSel.src = path;
+
+        }
+        else if(value>150 && value<=200){
+            var tips = ['Active children & adults should avoid heavy exertion outdoors.', 'Unsafe for people with lung and heart diseases, like Asthma\n','Unsafe for old people.\n',
+       'Extremely Limited outdoor activities\n'];
+            path = '{% static "img/zephyrSecond/4.jpg" %}';
+            imgSel.src = path;
+
+        }
+
+        else  if(value>200 && value<=300){
+            var tips=['Children and adults avoid exertion outdoors.\n','People with lung and heart diseases & old people avoid all outdoor activities.\n','Use pollution masks.\n,','Use air purifiers and filters.\n'];
+            path = '{% static "img/zephyrSecond/5.jpg" %}';
+            imgSel.src = path;
+        }
+
+        else{
+            var tips=['Avoid all physical outdoor activities.\n','Use Pollution masks.\n','Use Air purifiers and filters.\n','Stay indoor as much as possible.\n'];
+            path = '{% static "img/zephyrSecond/6.jpg" %}';
+            imgSel.src = path;
+
+        }
+       for (var i = 0; i < tips.length; i++) {
+           var tip = tips[i];
+           var ul = document.getElementById("do-list");
+           var lineLi = document.createElement('li');
+           var newD = document.createElement('div');
+           newD.classList.add("divider");
+           lineLi.appendChild(newD);
+           var li = document.createElement('li');
+           li.appendChild(document.createTextNode(tip));
+           ul.appendChild(li).appendChild(lineLi);
+       }
+           if(value==0){
+                var ul = document.getElementById("dont-list");
+           var li = document.createElement('manali');
+           li.appendChild(document.createTextNode("Status Not Available"));
+           ul.appendChild(li);
+             }
+           else if(value>0 && value<=50){
+                var ul = document.getElementById("dont-list");
+           var li = document.createElement('manali');
+           li.appendChild(document.createTextNode("Healthy"));
+           ul.appendChild(li);
+             }
+             else if(value>50 && value<=100){
+                 // var stats1=status[1];
+                var ul = document.getElementById("dont-list");
+                var li = document.createElement('li');
+                 li.appendChild(document.createTextNode("Moderate"));
+                ul.appendChild(li);
+             }
+             else if(value>100 && value<=150){
+                 // var stats1=status[1];
+                var ul = document.getElementById("dont-list");
+                var li = document.createElement('li');
+                 li.appendChild(document.createTextNode("Slightly Unhealthy"));
+                ul.appendChild(li);
+             }
+             else if(value>150 && value<=200){
+                 // var stats1=status[1];
+                var ul = document.getElementById("dont-list");
+                var li = document.createElement('h2');
+                 li.innerText = "Unhealthy"
+                ul.appendChild(li);
+             }
+             else if(value>200 && value<=300){
+                 // var stats1=status[1];
+                var ul = document.getElementById("dont-list");
+                var li = document.createElement('li');
+                 li.appendChild(document.createTextNode("Very Unhealthy"));
+                ul.appendChild(li);
+             }
+             else{
+                 // var stats1=status[1];
+                var ul = document.getElementById("dont-list");
+                var li = document.createElement('li');
+                 li.appendChild(document.createTextNode("Hazardous"));
+                ul.appendChild(li);
+             }
+
+
+
+</script>
+
+<script src='{% static "js/zephyrSecond/materialize.js" %}'></script>
+<script>
+    $(document).ready(function () {
+        $('.tabs').tabs();
+    });
+</script>
+<script src='{% static "js/zephyrSecond/yearly.js" %}'></script>
+<script src='{% static "js/zephyrSecond/monthly.js" %}'></script>
+<script src='{% static "js/zephyrSecond/daily.js" %}'></script>
+</body>
+</html>
