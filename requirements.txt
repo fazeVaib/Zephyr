@@ -5,7 +5,7 @@ chardet==3.0.4
 coreapi==2.3.3
 coreschema==0.0.4
 cycler==0.10.0
-Django==2.2.13
+Django==2.2.18
 djangorestframework==3.9.1
 html5lib==1.0.1
 idna==2.7
