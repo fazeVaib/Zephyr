@@ -10,7 +10,7 @@ djangorestframework==3.9.1
 html5lib==1.0.1
 idna==2.7
 itypes==1.1.0
-Jinja2==2.10.1
+Jinja2==2.11.3
 kiwisolver==1.0.1
 MarkupSafe==1.1.0
 matplotlib==3.0.0
